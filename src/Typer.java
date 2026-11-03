@@ -1,14 +1,8 @@
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Typer {
-    static final String[] commands = {
-        "move",
-        "inspect",
-        "pick",
-        "talk"
-    };
-
     // Separates each word of a command
     public static List<String> getCommand(String input) {
         char[] chars = input.toCharArray();
@@ -35,15 +29,22 @@ public class Typer {
 
     public static void command(String input) {
         List<String> command = getCommand(input);
-
-        if (command.get(0).equalsIgnoreCase(commands[0])) {
+        
+        if (command.get(0).equalsIgnoreCase("quit")) {
+            // If the player wants to quit
+            System.exit(0);
+        } else if (command.get(0).equalsIgnoreCase("move")) {
             // If the player wants to move in a direction
-        } else if (command.get(0).equalsIgnoreCase(commands[1])) {
+        } else if (command.get(0).equalsIgnoreCase("inspect")) {
             // If the player wants to inspect something
-        } else if (command.get(0).equalsIgnoreCase(commands[2])) {
+        } else if (command.get(0).equalsIgnoreCase("pick") && command.get(1).equalsIgnoreCase("up")) {
             // If the player wants to pick up an object
-        } else if (command.get(0).equalsIgnoreCase(commands[3])) {
-            // If the player wants to talk to someone
+        } else if (command.get(0).equalsIgnoreCase("drop")) {
+            // If the player wants to drop an object
+        } else if (command.get(0).equalsIgnoreCase("list")) {
+            // If the player wants to list their picked-up objects
+        } else if (command.get(0).equalsIgnoreCase("help")) {
+            // If the player wants to get some helps
         }
     }
 }
