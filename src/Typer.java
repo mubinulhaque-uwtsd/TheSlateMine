@@ -47,7 +47,16 @@ public class Typer {
         } else if (command.get(0).equalsIgnoreCase("list")) {
             // If the player wants to list their picked-up objects
         } else if (command.get(0).equalsIgnoreCase("help")) {
-            // If the player wants to get some helps
+            // If the player wants to get some help
+            System.out.println("Commands available:");
+            System.out.println("'help': Lists all available commands");
+            System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the current room");
+            System.out.println("'inspect <object>'': Provides a description of the given room or object");
+            System.out.println("'list': Lists all objects currently in your inventory");
+            System.out.println("'move <direction>'': Moves you either north, east, south, west, up, or down, when specified");
+            System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");
+            System.out.println("'quit': Quits the game");
+            System.out.println("");
         }
     }
 }
