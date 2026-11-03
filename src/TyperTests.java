@@ -8,7 +8,7 @@ public class TyperTests {
     @Test
     void checkGetCommand() {
         List<String> expected = new ArrayList<>();
-        List<String> actual = Typer.getCommand("       move   dir  ");
+        List<String> actual = Typer.getCommand("       MoVe   diR  ");
 
         expected.add("move");
         expected.add("dir");
