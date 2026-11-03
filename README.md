@@ -1,2 +1,2 @@
 # The Slate Mine
-Team project for Object-Oriented Programming to make a text adventure game.
+Team project for Programming and Software Testing to make a text adventure game.
