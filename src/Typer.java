@@ -19,6 +19,10 @@ public class Typer {
             }
         }
 
+        if (!sb.isEmpty()) {
+            words.add(sb.toString());
+        }
+
         for (int i = 0; i < words.size(); i++) {
             words.set(i, words.get(i).toLowerCase());
         }

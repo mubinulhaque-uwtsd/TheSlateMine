@@ -16,5 +16,13 @@ public class TyperTests {
         assertEquals(expected.size(), actual.size());
         assertEquals(expected.get(0), actual.get(0));
         assertEquals(expected.get(1), actual.get(1));
+
+        expected = new ArrayList<>();
+        expected.add("quit");
+
+        actual = Typer.getCommand("quit");
+
+        assertEquals(expected.size(), actual.size());
+        assertEquals(expected.get(0), actual.get(0));
     }
 }
