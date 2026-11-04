@@ -80,6 +80,13 @@ public class Typer {
             }
         } else if (command.get(0).equalsIgnoreCase("list")) {
             // If the player wants to list their picked-up objects
+        } else if (command.get(0).equalsIgnoreCase("use")) {
+            // If the player wants to use an item
+            if (command.size() > 1 && command.get(1).equalsIgnoreCase("map")) {
+                OldMap.printMap(currentRoom);
+            }
+            else if(command.size() <= 1)
+                System.out.println("Specify an item to use.");
         } else if (command.get(0).equalsIgnoreCase("help")) {
             // If the player wants to get some help
             System.out.println("Commands available:");
