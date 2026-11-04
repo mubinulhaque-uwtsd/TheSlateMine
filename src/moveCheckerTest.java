@@ -18,15 +18,36 @@ public class moveCheckerTest {
     assertEquals(false, moveChecker.checkMoveIsLegal(6, 4));
     
     // Tests to verify legal moves between rooms - all should pass as the direction 
-    // for each room is a valid exit to another room. 
+    // for each room is a valid exit to another room.
+
+    // ALL POSSIBLE LEGAL MOVES
+
+    // All legal Moves for entrance
     assertEquals(true, moveChecker.checkMoveIsLegal(0, 0));
+
+    // All legal mmoves for main tunnel
+    assertEquals(true, moveChecker.checkMoveIsLegal(1, 0));
+    assertEquals(true, moveChecker.checkMoveIsLegal(1, 1));
     assertEquals(true, moveChecker.checkMoveIsLegal(1, 2));
+    assertEquals(true, moveChecker.checkMoveIsLegal(1, 3));
+
+    // All legal moves for winding room 
     assertEquals(true, moveChecker.checkMoveIsLegal(2, 5));
+    assertEquals(true, moveChecker.checkMoveIsLegal(2, 1));
+
+    // All legal moves for lower chamber 
     assertEquals(true, moveChecker.checkMoveIsLegal(3, 4));
+    
+    // All legal moves for tool store
     assertEquals(true, moveChecker.checkMoveIsLegal(4, 3));
+
+    // All legal moves for shaft bottom
     assertEquals(true, moveChecker.checkMoveIsLegal(5, 4));
+    assertEquals(true, moveChecker.checkMoveIsLegal(5, 2));
+
+    // All legal moves for shaft top 
     assertEquals(true, moveChecker.checkMoveIsLegal(6, 5));
 
     }
-    
+
 }
