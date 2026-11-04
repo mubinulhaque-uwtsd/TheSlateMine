@@ -9,7 +9,7 @@ public class roomdescriptionTest {
     void CheckIfCorrectDescriptionForEntrance() throws Exception {
         int room = MoveRooms.entrance;
 
-        assertEquals("You are standing at the entrance. It is bright and welcoming", roomdescription.room_description(room));
+        assertEquals("You are standing at the entrance. It is dim and damp.", roomdescription.room_description(room));
     }
 
     @Test
