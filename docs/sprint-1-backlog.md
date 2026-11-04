@@ -5,11 +5,12 @@ Create a playable prototype that allows a player to navigate the mine, enter com
 
 Story	Description	             Status
 US1	    Move between rooms	     Done
+US2     Complete game function   Done
 US3	    Type and parse commands  Done
 US4	    Help command	         Done
+US5     Check legal move         In Progress
 US6	    Room descriptions	     Done
 US8	    Main game loop	         Done
-US9	    Complete game function	 Done
 
 **Sprint 1 Deliverables**
 - Cave map implemented using room IDs and exit arrays.
