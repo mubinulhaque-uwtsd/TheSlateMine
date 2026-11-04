@@ -23,7 +23,7 @@ public class MoveRooms {
     // Column = direction (N, E, S, W, U, D).
 
     // A value of -1 indicates that no exit exists in that direction.
-    static int[][] exits = {
+    public static int[][] exits = {
         // N  E  S  W  U  D
         { 1,-1,-1,-1,-1,-1 }, // Entrance
         { 5, 4, 0, 2,-1,-1 }, // Main Tunnel

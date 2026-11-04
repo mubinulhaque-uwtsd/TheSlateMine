@@ -8,7 +8,7 @@ US1	    Move between rooms	     Done
 US2     Complete game function   Done
 US3	    Type and parse commands  Done
 US4	    Help command	         Done
-US5     Check legal move         In Progress
+US5     Check legal move         Done
 US6	    Room descriptions	     Done
 US8	    Main game loop	         Done
 
