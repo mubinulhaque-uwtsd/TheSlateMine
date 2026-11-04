@@ -46,4 +46,37 @@ public class InventoryTests {
         assertEquals(false, Inventory.pickUp(MoveRooms.mainTunnel, "key"));
         assertEquals(false, Inventory.pickUp(MoveRooms.shaftBottom, "key"));
     }
+
+    // Verify that the player can drop items they are carrying
+    @Test 
+    void checkValidDrops() {
+        Inventory.hasKey = true;
+        assertTrue(Inventory.drop("key"));
+        Inventory.hasHelmet = true;
+        assertTrue(Inventory.drop("helmet"));
+        Inventory.hasHelmet = true;
+        assertTrue(Inventory.drop("helmet"));
+        Inventory.hasMap = true;
+        assertTrue(Inventory.drop("old"));
+        Inventory.hasMap = true;
+        assertTrue(Inventory.drop("map"));
+        Inventory.hasRope = true;
+        assertTrue(Inventory.drop("rope"));
+    }
+
+    // Verifies that the player cannot drop items they are not carrying
+    @Test 
+    void checkInvalidDrops() {
+        Inventory.hasKey = false;
+        Inventory.hasHelmet = false;
+        Inventory.hasMap = false;
+        Inventory.hasRope = false;
+
+        assertFalse(Inventory.drop("key"));
+        assertFalse(Inventory.drop("helmet"));
+        assertFalse(Inventory.drop("lamp"));
+        assertFalse(Inventory.drop("old"));
+        assertFalse(Inventory.drop("map"));
+        assertFalse(Inventory.drop("rope"));
+    }
 }

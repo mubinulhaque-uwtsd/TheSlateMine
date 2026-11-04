@@ -25,4 +25,28 @@ public class Inventory {
             return false;
         }
     }
+
+    public static boolean drop(String itemString) {
+        if (itemString.equalsIgnoreCase("key") && hasKey) {
+            hasKey = false;
+            return true;
+        } else if (itemString.equalsIgnoreCase("helmet") && hasHelmet) {
+            hasHelmet = false;
+            return true;
+        } else if (itemString.equalsIgnoreCase("lamp") && hasHelmet) {
+            hasHelmet = false;
+            return true;
+        } else if (itemString.equalsIgnoreCase("rope") && hasRope) {
+            hasRope = false;
+            return true;
+        } else if (itemString.equalsIgnoreCase("old") && hasMap) {
+            hasMap = false;
+            return true;
+        } else if (itemString.equalsIgnoreCase("map") && hasMap) {
+            hasMap = false;
+            return true;
+        }
+
+        return false;
+    }
 }
