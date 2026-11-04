@@ -79,4 +79,12 @@ public class InventoryTests {
         assertFalse(Inventory.drop("map"));
         assertFalse(Inventory.drop("rope"));
     }
+
+    // Verify that the player can drop items and then retrieve them again
+    @Test 
+    void checkDropAndGrab() {
+        assertTrue(Inventory.pickUp(MoveRooms.toolStore, "rope"));
+        assertTrue(Inventory.drop("rope"));
+        assertTrue(Inventory.pickUp(MoveRooms.toolStore, "rope"));
+    }
 }

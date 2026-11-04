@@ -62,8 +62,22 @@ public class Typer {
             // If the player wants to inspect something
         } else if (command.get(0).equalsIgnoreCase("pick") && command.get(1).equalsIgnoreCase("up")) {
             // If the player wants to pick up an object
+            if (command.size() > 2) {
+                // If the player specifies the item
+                Inventory.pickUp(currentRoom, command.get(2));
+            } else {
+                // If the player didn't specify an item
+                System.out.println("You must specify an item to pick up.");
+            }
         } else if (command.get(0).equalsIgnoreCase("drop")) {
             // If the player wants to drop an object
+            if (command.size() > 1) {
+                // If the player specifies what they want to drop
+                Inventory.drop(command.get(1));
+            } else {
+                // If the player doesn't specify what they want to drop
+                System.out.println("You must specify what to drop.");
+            }
         } else if (command.get(0).equalsIgnoreCase("list")) {
             // If the player wants to list their picked-up objects
         } else if (command.get(0).equalsIgnoreCase("help")) {
