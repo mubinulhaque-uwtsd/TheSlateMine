@@ -10,7 +10,7 @@ public class App {
 
         // Main game loop
         while (!hasWon) {
-            Typer.command(stdin.nextLine());
+            hasWon = Typer.command(stdin.nextLine());
         }
 
         // Outro

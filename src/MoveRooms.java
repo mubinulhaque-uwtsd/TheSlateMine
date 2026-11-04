@@ -53,4 +53,54 @@ public class MoveRooms {
         // Return the destination room for the chosen direction.
         return exits[room][direction];
     }
+
+    // Returns the name of a room from its index
+    public static String getRoom(int room) {
+        switch (room) {
+            case 0:
+                return "Entrance";
+            
+            case 1:
+                return "Main Tunnel";
+            
+            case 2:
+                return "Winding Room";
+            
+            case 3:
+                return "Lower Chamber";
+            
+            case 4:
+                return "Tool Store";
+            
+            case 5:
+                return "Shaft Bottom";
+            
+            case 6:
+                return "Shaft Top";
+            
+            default:
+                return "Unknown";
+        }
+    }
+
+    // Returns a direction from a String
+    public static int getDirection(String direction) {
+        if (direction.equalsIgnoreCase("north")) {
+            return north;
+        } else if (direction.equalsIgnoreCase("east")) {
+            return east;
+        } else if (direction.equalsIgnoreCase("south")) {
+            return south;
+        } else if (direction.equalsIgnoreCase("west")) {
+            return west;
+        } else if (direction.equalsIgnoreCase("up")) {
+            return up;
+        } else if (direction.equalsIgnoreCase("down")) {
+            return down;
+        } else {
+            System.out.println("That is not a valid direction.");
+            System.out.println("You can only move north, east, south, west, up or down.");
+            return -1;
+        }
+    }
 }
