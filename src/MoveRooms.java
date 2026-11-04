@@ -1,21 +1,21 @@
 public class MoveRooms {
 
     // Direction constants used as indexes in the exits array.
-    static final int north = 0;
-    static final int east = 1;
-    static final int south = 2;
-    static final int west = 3;
-    static final int up = 4;
-    static final int down = 5;
+    public static final int north = 0;
+    public static final int east = 1;
+    public static final int south = 2;
+    public static final int west = 3;
+    public static final int up = 4;
+    public static final int down = 5;
 
     // Room constants used to identify each room in the cave.
-    static final int entrance = 0;
-    static final int mainTunnel = 1;
-    static final int windingRoom = 2;
-    static final int lowerChamber = 3;
-    static final int toolStore = 4;
-    static final int shaftBottom = 5;
-    static final int shaftTop = 6;
+    public static final int entrance = 0;
+    public static final int mainTunnel = 1;
+    public static final int windingRoom = 2;
+    public static final int lowerChamber = 3;
+    public static final int toolStore = 4;
+    public static final int shaftBottom = 5;
+    public static final int shaftTop = 6;
 
     // Stores the available exits for each room.
 
