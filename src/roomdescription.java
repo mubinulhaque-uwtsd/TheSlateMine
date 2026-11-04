@@ -11,7 +11,7 @@ public static String room_description(int room)
     String description = "";
     if(room == MoveRooms.entrance)
     {
-         description = "You are standing at the entrance. It is bright and welcoming"; 
+         description = "You are standing at the entrance. It is dim and damp."; 
     }
     else if(room == MoveRooms.mainTunnel)
     {

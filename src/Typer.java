@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Typer {
+    static int currentRoom = 0;
+    
     // Separates each word of a command
     public static List<String> getCommand(String input) {
         char[] chars = input.toCharArray();
@@ -30,7 +32,7 @@ public class Typer {
         return words;
     }
 
-    public static void command(String input) {
+    public static boolean command(String input) {
         List<String> command = getCommand(input);
         
         if (command.get(0).equalsIgnoreCase("quit")) {
@@ -39,6 +41,23 @@ public class Typer {
             System.exit(0);
         } else if (command.get(0).equalsIgnoreCase("move")) {
             // If the player wants to move in a direction
+            if (command.size() > 1) {
+                // If the player gave a direction
+                int direction = MoveRooms.getDirection(command.get(1));
+                boolean isLegal = moveChecker.checkMoveIsLegal(currentRoom, direction);
+
+                if (direction >= 0 && isLegal) {
+                    // If the direction is valid
+                    currentRoom = MoveRooms.move(currentRoom, direction);
+
+                    System.out.printf(roomdescription.room_description(currentRoom));
+                } else if (direction >= 0 && !isLegal) {
+                    System.out.println("You cannot move in this directon.");
+                }
+            } else {
+                // If the player didn't give a direction
+                System.out.println("You must specify a direction.");
+            }
         } else if (command.get(0).equalsIgnoreCase("inspect")) {
             // If the player wants to inspect something
         } else if (command.get(0).equalsIgnoreCase("pick") && command.get(1).equalsIgnoreCase("up")) {
@@ -60,5 +79,6 @@ public class Typer {
         }
         
         System.out.println("");
+        return completegame.IsGameComplete(currentRoom);
     }
 }

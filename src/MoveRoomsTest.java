@@ -1,5 +1,4 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -78,5 +77,18 @@ public class MoveRoomsTest {
         for (int[] room : MoveRooms.exits) {
             assertEquals(6, room.length);
         }
+    }
+
+    @Test 
+    // Verify that each direction returns the correct integer
+    void checkGetDirection() {
+       assertEquals(MoveRooms.north, MoveRooms.getDirection("north"));
+       assertEquals(MoveRooms.east, MoveRooms.getDirection("east"));
+       assertEquals(MoveRooms.south, MoveRooms.getDirection("south"));
+       assertEquals(MoveRooms.west, MoveRooms.getDirection("west"));
+       assertEquals(MoveRooms.up, MoveRooms.getDirection("up"));
+       assertEquals(MoveRooms.down, MoveRooms.getDirection("down"));
+       
+       assertEquals(-1, MoveRooms.getDirection("wrong"));
     }
 }
