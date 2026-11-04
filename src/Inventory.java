@@ -17,9 +17,9 @@ public class Inventory {
             System.out.println("You pick up the rope. It looks long enough to reach the Shaft Top.");
             hasRope = true;
             return true;
-        } else if (currentRoom == MoveRooms.entrance && (itemString.equalsIgnoreCase("helmet") || itemString.equalsIgnoreCase("lamp") && !hasHelmet)) {
+        } else if (currentRoom == MoveRooms.entrance && (itemString.equalsIgnoreCase("helmet") || itemString.equalsIgnoreCase("lamp")) && !hasHelmet) {
             System.out.println("You pick up the spare helmet lamp. It seems that this could be given to someone.");
-            hasRope = true;
+            hasHelmet = true;
             return true;
         } else {
             return false;
