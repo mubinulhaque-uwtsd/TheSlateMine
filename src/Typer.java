@@ -35,6 +35,7 @@ public class Typer {
         
         if (command.get(0).equalsIgnoreCase("quit")) {
             // If the player wants to quit
+            System.out.println();
             System.exit(0);
         } else if (command.get(0).equalsIgnoreCase("move")) {
             // If the player wants to move in a direction
@@ -51,12 +52,13 @@ public class Typer {
             System.out.println("Commands available:");
             System.out.println("'help': Lists all available commands");
             System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the current room");
-            System.out.println("'inspect <object>'': Provides a description of the given room or object");
+            System.out.println("'inspect <object>': Provides a description of the given room or object");
             System.out.println("'list': Lists all objects currently in your inventory");
-            System.out.println("'move <direction>'': Moves you either north, east, south, west, up, or down, when specified");
+            System.out.println("'move <direction>': Moves you either north, east, south, west, up, or down, when specified");
             System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");
             System.out.println("'quit': Quits the game");
-            System.out.println("");
         }
+        
+        System.out.println("");
     }
 }
