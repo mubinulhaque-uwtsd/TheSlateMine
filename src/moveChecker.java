@@ -23,13 +23,13 @@ public class moveChecker {
 
     private static boolean shaftBottomUnlocked = false;
 
-    public static boolean unlockShaftBottom() {
+    public static boolean unlockShaftBottom(int currentRoom) {
+        if (Inventory.hasKey &&
+            currentRoom == MoveRooms.mainTunnel) {
 
-        if (Inventory.hasKey) {
             shaftBottomUnlocked = true;
             return true;
         }
-
         return false;
     }
 
@@ -42,4 +42,22 @@ public class moveChecker {
     shaftBottomUnlocked = false;
     }
 
+    private static boolean shaftTopAccessible = false;
+
+    public static boolean useRopeOnShaftTop(int currentRoom) {
+        if (Inventory.hasRope && currentRoom == MoveRooms.shaftBottom) {
+            shaftTopAccessible = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean isShaftTopAccessible() {
+        return shaftTopAccessible;
+    }
+
+    public static void resetShaftTopAccessible() {
+        shaftTopAccessible = false;
+    }
 }

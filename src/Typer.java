@@ -91,10 +91,23 @@ public class Typer {
             } else if (command.size() > 1 &&
                        command.get(1).equalsIgnoreCase("key")) {
 
-                if (moveChecker.unlockShaftBottom()) {
+                if (moveChecker.unlockShaftBottom(currentRoom)) {
                     System.out.println("You unlock the shaft bottom.");
+                } else if (Inventory.hasKey) {
+                    System.out.println("You cannot use the key here.");
                 } else {
                     System.out.println("You do not have a key.");
+                }
+
+            } else if (command.size() > 1 &&
+                       command.get(1).equalsIgnoreCase("rope")) {
+
+                if (moveChecker.useRopeOnShaftTop(currentRoom)) {
+                    System.out.println("You secure the rope and can now access the shaft top.");
+                } else if (Inventory.hasRope) {
+                    System.out.println("You cannot use the rope here.");
+                } else {
+                    System.out.println("You do not have a rope.");
                 }
 
             } else if (command.size() <= 1) {
