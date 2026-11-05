@@ -97,6 +97,15 @@ public class Typer {
                     System.out.println("You do not have a key.");
                 }
 
+            } else if (command.size() > 1 &&
+                       command.get(1).equalsIgnoreCase("rope")) {
+
+                if (moveChecker.useRopeOnShaftTop()) {
+                    System.out.println("You secure the rope and can now access the shaft top.");
+                } else {
+                    System.out.println("You do not have a rope.");
+                }
+
             } else if (command.size() <= 1) {
 
                 System.out.println("Specify an item to use.");

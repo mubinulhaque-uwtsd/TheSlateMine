@@ -42,4 +42,23 @@ public class moveChecker {
     shaftBottomUnlocked = false;
     }
 
+    private static boolean shaftTopAccessible = false;
+
+    public static boolean useRopeOnShaftTop() {
+
+        if (Inventory.hasRope) {
+            shaftTopAccessible = true;
+            return true;
+        }
+
+    return false;
+    }
+
+    public static boolean isShaftTopAccessible() {
+        return shaftTopAccessible;
+    }
+
+    public static void resetShaftTopAccessible() {
+        shaftTopAccessible = false;
+    }
 }

@@ -149,4 +149,70 @@ public class moveCheckerTest {
         // Verify shaft stays unlocked
         assertTrue(moveChecker.isShaftBottomUnlocked());
     }
+
+    @Test
+    void testUseRopeWithRope() {
+
+        // Reset shaft top state
+        moveChecker.resetShaftTopAccessible();
+
+        // Give player a rope
+        Inventory.hasRope = true;
+
+        // Use rope
+        boolean result = moveChecker.useRopeOnShaftTop();
+
+        // Verify access granted
+        assertTrue(result);
+        assertTrue(moveChecker.isShaftTopAccessible());
+    }
+
+    @Test
+    void testUseRopeWithoutRope() {
+
+        // Reset shaft top state
+        moveChecker.resetShaftTopAccessible();
+
+        // Ensure player has no rope
+        Inventory.hasRope = false;
+
+        // Attempt to use rope
+        boolean result = moveChecker.useRopeOnShaftTop();
+
+        // Verify access denied
+        assertFalse(result);
+        assertFalse(moveChecker.isShaftTopAccessible());
+    }
+
+    @Test
+    void testUseRopeCommandGrantsAccess() {
+
+        // Reset shaft top state
+        moveChecker.resetShaftTopAccessible();
+
+        // Give player a rope
+        Inventory.hasRope = true;
+
+        // Use rope command
+        Typer.command("use rope");
+
+        // Verify access granted
+        assertTrue(moveChecker.isShaftTopAccessible());
+    }
+
+    @Test
+    void testUseRopeCommandWithoutRope() {
+
+        // Reset shaft top state
+        moveChecker.resetShaftTopAccessible();
+
+        // Ensure player has no rope
+        Inventory.hasRope = false;
+
+        // Attempt to use rope
+        Typer.command("use rope");
+
+        // Verify access denied
+        assertFalse(moveChecker.isShaftTopAccessible());
+    }
 }
