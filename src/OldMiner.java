@@ -17,7 +17,7 @@ public class OldMiner {
     }
 
     // If you can give the spare helmet lamp to the old miner
-    public static boolean giveItem(String item) {
+    public static boolean giveItem(String item, int currentRoom) {
         return false;
     }
 }
