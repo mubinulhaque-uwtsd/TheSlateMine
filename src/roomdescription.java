@@ -11,7 +11,10 @@ public static String room_description(int room)
     String description = "";
     if(room == MoveRooms.entrance)
     {
-         description = "You are standing at the entrance. It is dim and damp, and contains a helmet lamp."; 
+        description = "You are standing at the entrance. It is dim and damp."; 
+        if (!Inventory.hasHelmet) {
+            description += " There is a helmet lamp here.";
+        }
     }
     else if(room == MoveRooms.mainTunnel)
     {
@@ -19,15 +22,27 @@ public static String room_description(int room)
     }
     else if(room == MoveRooms.lowerChamber)
     {
-        description = "You are standing at the lower chamber. There is a key here.";
+        description = "You are standing at the lower chamber.";
+        
+        if (!Inventory.hasKey) {
+            description += " There is a key here.";
+        }
     }
     else if(room == MoveRooms.windingRoom)
     {
-        description = "You are standing in the winding room. There is an old map here.";
+        description = "You are standing in the winding room.";
+
+        if (!Inventory.hasMap) {
+            description += " There is an old map here.";
+        }
     }
     else if(room == MoveRooms.toolStore)
     {
-        description = "You are standing in a tool store. There is a key here.";
+        description = "You are standing in a tool store.";
+
+        if (!Inventory.hasRope) {
+            description += " There is a rope here.";
+        }
     }
     else if(room == MoveRooms.shaftBottom)
     {
@@ -40,8 +55,8 @@ public static String room_description(int room)
     return description;
 }
 
-public static void PrintDescription(int room)
-{
+    public static void PrintDescription(int room)
+    {
 
         System.out.printf("%s",room);
 
