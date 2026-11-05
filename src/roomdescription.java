@@ -18,7 +18,7 @@ public static String room_description(int room)
     }
     else if(room == MoveRooms.mainTunnel)
     {
-        description = "You are standing at the main tunnel. The tunnel branches into different paths, a winding room to the left, and what looks like a storage room to the right.";
+        description = "You are standing at the main tunnel. The tunnel branches into different paths, a winding room to the left, and what looks like a storage room to the right. A bottom of a shaft is on the ceiling of the tunnel.";
     }
     else if(room == MoveRooms.lowerChamber)
     {

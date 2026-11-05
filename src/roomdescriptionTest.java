@@ -24,7 +24,7 @@ public class roomdescriptionTest {
 
         int room = MoveRooms.mainTunnel;
         assertEquals(
-            "You are standing at the main tunnel. The tunnel branches into different paths, a winding room to the left, and what looks like a storage room to the right.",
+            "You are standing at the main tunnel. The tunnel branches into different paths, a winding room to the left, and what looks like a storage room to the right. A bottom of a shaft is on the ceiling of the tunnel.",
             roomdescription.room_description(room));
     }
 
