@@ -80,6 +80,8 @@ public class Typer {
             }
         } else if (command.get(0).equalsIgnoreCase("list")) {
             // If the player wants to list their picked-up objects
+            System.out.println("You are carrying:");
+            itemtype.Printitems();
         } else if (command.get(0).equalsIgnoreCase("use")) {
             // If the player wants to use an item
 
