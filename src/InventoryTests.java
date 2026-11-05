@@ -5,27 +5,25 @@ public class InventoryTests {
     // Verifies that the items can be picked up in the correct locations
     @Test
     void checkValidPickups() {
-        Inventory.hasHelmet = false;
-        Inventory.hasKey = false;
-        Inventory.hasMap = false;
-        Inventory.hasRope = false;
+        App.newGame();
 
         assertEquals(true, Inventory.pickUp(MoveRooms.windingRoom, "old"));
-        Inventory.hasMap = false; // We have to set this back to false, otherwise it fails the test, because the item has already been picked up and thus doesn't exist in the room anymore.
+
+        App.newGame();
+
         assertEquals(true, Inventory.pickUp(MoveRooms.windingRoom, "map"));
         assertEquals(true, Inventory.pickUp(MoveRooms.toolStore, "rope"));
         assertEquals(true, Inventory.pickUp(MoveRooms.entrance, "helmet"));
-        Inventory.hasHelmet = false; // We have to set this back to false, otherwise it fails the test, because the item has already been picked up and thus doesn't exist in the room anymore.
+
+        App.newGame();
+
         assertEquals(true, Inventory.pickUp(MoveRooms.entrance, "lamp"));
     }
 
     // Verifies that the items cannot be picked up in the wrong locations
     @Test
     void checkInvalidPickups() {
-        Inventory.hasHelmet = false;
-        Inventory.hasKey = false;
-        Inventory.hasMap = false;
-        Inventory.hasRope = false;
+        App.newGame();
         
         // Invalid tests for the rope item
         assertEquals(false, Inventory.pickUp(MoveRooms.entrance, "rope"));
@@ -60,6 +58,8 @@ public class InventoryTests {
     // Verify that the player can drop items they are carrying
     @Test 
     void checkValidDrops() {
+        App.newGame();
+
         Inventory.hasKey = true;
         assertFalse(Inventory.drop("key"));
         Inventory.hasHelmet = true;
@@ -77,10 +77,7 @@ public class InventoryTests {
     // Verifies that the player cannot drop items they are not carrying
     @Test 
     void checkInvalidDrops() {
-        Inventory.hasKey = false;
-        Inventory.hasHelmet = false;
-        Inventory.hasMap = false;
-        Inventory.hasRope = false;
+        App.newGame();
 
         assertFalse(Inventory.drop("key"));
         assertFalse(Inventory.drop("helmet"));
@@ -93,6 +90,8 @@ public class InventoryTests {
     // Verify that the player can drop items and then retrieve them again
     @Test 
     void checkDropAndGrab() {
+        App.newGame();
+        
         assertTrue(Inventory.pickUp(MoveRooms.toolStore, "rope"));
         assertTrue(Inventory.drop("rope"));
         assertTrue(Inventory.pickUp(MoveRooms.toolStore, "rope"));

@@ -9,6 +9,7 @@ public class OldMapTest {
 
 @Test // check whether map header is printed
 public void testPrintMapShowsHeader() {
+    App.newGame();
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     System.setOut(new PrintStream(output));
 
@@ -21,6 +22,7 @@ public void testPrintMapShowsHeader() {
 
 @Test // test to see if current room is displayed.
 public void testPrintMapShowsCurrentRoom() {
+        App.newGame();
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     System.setOut(new PrintStream(output));
 
@@ -33,6 +35,7 @@ public void testPrintMapShowsCurrentRoom() {
 
 @Test // test to see if entrance room appears on map
 public void testMapContainsEntrance() {
+        App.newGame();
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     System.setOut(new PrintStream(output));
 
@@ -45,6 +48,7 @@ public void testMapContainsEntrance() {
 
 @Test // test to see that all rooms are printed
 public void testMapContainsAllRooms() {
+        App.newGame();
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     System.setOut(new PrintStream(output));
 
@@ -63,6 +67,7 @@ public void testMapContainsAllRooms() {
 
 @Test // test to see if the current room changes.
 public void testCurrentRoomChanges() {
+        App.newGame();
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     System.setOut(new PrintStream(output));
 
