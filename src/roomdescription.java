@@ -22,10 +22,10 @@ public static String room_description(int room)
     }
     else if(room == MoveRooms.lowerChamber)
     {
-        description = "You are standing at the lower chamber.";
+        description = "You are standing at the lower chamber. There is an old miner here.";
         
         if (!Inventory.hasKey) {
-            description += " There is a key here.";
+            description += " He is holding something shiny.";
         }
     }
     else if(room == MoveRooms.windingRoom)
