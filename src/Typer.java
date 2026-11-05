@@ -128,6 +128,7 @@ public class Typer {
             System.out.println("'list': Lists all objects currently in your inventory");
             System.out.println("'move <direction>': Moves you either north, east, south, west, up, or down, when specified");
             System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");
+            System.out.println("'use <object>': Uses the specified object");
             System.out.println("'quit': Quits the game");
         } else {
             // If the player types an invalid command
