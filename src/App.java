@@ -17,4 +17,20 @@ public class App {
         // Outro
         System.out.println("After climbing the rope, you can feel the fresh air on your face. You are finally free.");
     }
+
+    // Reset every variable to its default state
+    public static void newGame() {
+        // Empty the player's inventory
+        Inventory.hasHelmet = false;
+        Inventory.hasKey = false;
+        Inventory.hasMap = false;
+        Inventory.hasRope = false;
+
+        // Move the player back to the entrance
+        Typer.currentRoom = MoveRooms.entrance;
+
+        // Reset the locked rooms
+        moveChecker.resetShaftBottomUnlocked();
+        moveChecker.resetShaftTopAccessible();
+    }
 }
