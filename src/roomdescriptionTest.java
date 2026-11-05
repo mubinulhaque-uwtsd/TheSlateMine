@@ -36,12 +36,12 @@ public class roomdescriptionTest {
 
         Inventory.hasKey = true;
         assertEquals(
-            "After climbing down the winding room, you arrive in a dark lower chamber. Seems like it doesn't go any furhter.",
+            "After climbing down the winding room, you arrive in a dark lower chamber. Seems like it doesn't go any further. There is an old miner here.",
             roomdescription.room_description(room));
 
         Inventory.hasKey = false;
         assertEquals(
-            "After climbing down the winding room, you arrive in a dark lower chamber. Seems like it doesn't go any furhter. There is a key here, shining on the ground.",
+            "After climbing down the winding room, you arrive in a dark lower chamber. Seems like it doesn't go any further. There is an old miner here. There is a key in his hand, shining.",
             roomdescription.room_description(room));
     }
 
