@@ -4,6 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 public class moveCheckerTest {
 
 
+     // Test to check that invalid user input is handled
+    @Test
+    public void checkInvalidUserInput() {
+
+    boolean result = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel,-1);
+
+    assertFalse(result);
+    
+    }   
+
     @Test 
     void checkIsMoveLegal() throws Exception {
 
@@ -16,6 +26,8 @@ public class moveCheckerTest {
     assertEquals(false, moveChecker.checkMoveIsLegal(4, 4));
     assertEquals(false, moveChecker.checkMoveIsLegal(5, 1));
     assertEquals(false, moveChecker.checkMoveIsLegal(6, 4));
+
+    // Test to check that invalid user input is handled
     
     // Tests to verify legal moves between rooms - all should pass as the direction 
     // for each room is a valid exit to another room.
@@ -47,6 +59,7 @@ public class moveCheckerTest {
 
     // All legal moves for shaft top 
     assertEquals(true, moveChecker.checkMoveIsLegal(6, 5));
+
 
     }
 
