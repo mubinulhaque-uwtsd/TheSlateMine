@@ -4,15 +4,23 @@ import static org.junit.jupiter.api.Assertions.*;
 public class moveCheckerTest {
 
 
-     // Test to check that invalid user input is handled
+    // Test to check that invalid user input is handled
     @Test
     public void checkInvalidUserInput() {
+    boolean invalidInput = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel,-1);
 
-    boolean result = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel,-1);
-
-    assertFalse(result);
+    assertFalse(invalidInput);
     
     }   
+
+     // Test to check that valid user input is  correctly handled
+    @Test
+    public void checkValidUserInput() {
+    boolean validInput = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel,1);
+
+    assertTrue(validInput);
+    
+    }  
 
     @Test 
     void checkIsMoveLegal() throws Exception {
@@ -60,8 +68,52 @@ public class moveCheckerTest {
     // All legal moves for shaft top 
     assertEquals(true, moveChecker.checkMoveIsLegal(6, 5));
 
+    }
+
+    // Tests to check locking mechanism works for key and rope
+    // First test: player can't move to shaft bottom if door is locked
+    @Test 
+    void checkDoorLocked() {
+
+        moveChecker.shaftBottomUnlocked = false;
+        boolean shaftDoorLocked = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel, MoveRooms.north);
+
+        assertFalse(shaftDoorLocked);
 
     }
+
+    //Secind test; player can move to shaft bottom if door is unlocked
+    @Test
+        public void checkDoorUnlocked() {
+
+        moveChecker.shaftBottomUnlocked = true;
+        boolean shaftDoorUnlocked = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel, MoveRooms.north);
+
+        assertTrue(shaftDoorUnlocked);
+    
+    }
+
+    // Third test: player can't move to shaft top if there is no rope
+    @Test
+    public void checkShaftTopLocked() {
+
+        moveChecker.shaftTopAccessible = false;
+        boolean shaftTopLocked = moveChecker.checkMoveIsLegal(MoveRooms.shaftBottom, MoveRooms.up);
+
+        assertFalse(shaftTopLocked);
+    }
+
+    // Fourth test: player can't move to shaft top if there is no rope
+    @Test
+    public void checkShaftTopUnlocked() {
+
+        moveChecker.shaftTopAccessible = true;
+        boolean result = moveChecker.checkMoveIsLegal(MoveRooms.shaftBottom, MoveRooms.up);
+
+        assertTrue(result);
+    }
+
+
 
     @Test
     void testUnlockShaftBottomWithKey() {
@@ -233,5 +285,7 @@ public class moveCheckerTest {
 
         // Verify access denied
         assertFalse(moveChecker.isShaftTopAccessible());
+    
     }
+
 }
