@@ -7,33 +7,43 @@ import org.junit.jupiter.api.Test;
 public class roomdescriptionTest {
     @Test 
     void CheckIfCorrectDescriptionForEntrance() throws Exception {
-        int room = MoveRooms.entrance;
-
-        assertEquals("You are standing at the entrance. It is dim and damp.", roomdescription.room_description(room));
+        Inventory.hasHelmet = true;
+        assertEquals("You are standing at the entrance. It is dim and damp.", roomdescription.room_description(MoveRooms.entrance));
+        Inventory.hasHelmet = false;
+        assertEquals("You are standing at the entrance. It is dim and damp. There is a helmet lamp here.", roomdescription.room_description(MoveRooms.entrance));
     }
 
     @Test
     void CheckIfCorrectDescriptionForMainTunnel() throws Exception {
         int room = MoveRooms.mainTunnel;
-        assertEquals("You are standing at the main tunnel", roomdescription.room_description(room));
+        assertEquals("You are standing at the main tunnel.", roomdescription.room_description(room));
     }
 
     @Test
     void CheckIfCorrectDescriptionForLowerChamber() throws Exception {
         int room = MoveRooms.lowerChamber;
-        assertEquals("You are standing at the lower chamber", roomdescription.room_description(room));
+        Inventory.hasKey = true;
+        assertEquals("You are standing at the lower chamber.", roomdescription.room_description(room));
+        Inventory.hasKey = false;
+        assertEquals("You are standing at the lower chamber. There is a key here.", roomdescription.room_description(room));
     }
 
     @Test
     void CheckIfCorrectDescriptionForWindingRoom() throws Exception {
         int room = MoveRooms.windingRoom;
-        assertEquals("You are standing in the winding room", roomdescription.room_description(room));
+        Inventory.hasMap = false;
+        assertEquals("You are standing in the winding room. There is an old map here.", roomdescription.room_description(room));
+        Inventory.hasMap = true;
+        assertEquals("You are standing in the winding room.", roomdescription.room_description(room));
     }
 
     @Test
     void CheckIfCorrectDescriptionForToolStore() throws Exception {
         int room = MoveRooms.toolStore;
-        assertEquals("You are standing in a tool store", roomdescription.room_description(room));
+        Inventory.hasRope = true;
+        assertEquals("You are standing in a tool store.", roomdescription.room_description(room));
+        Inventory.hasRope = false;
+        assertEquals("You are standing in a tool store. There is a rope here.", roomdescription.room_description(room));
     }
 
 

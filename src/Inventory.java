@@ -9,11 +9,11 @@ public class Inventory {
             System.out.println("You pick up the key. It says, \"Gate To Shaft Bottom\" on its label.");
             hasKey = true;
             return true;
-        } else if (currentRoom == MoveRooms.windingRoom && (itemString.equalsIgnoreCase("map") || itemString.equalsIgnoreCase("old")) & !hasMap) {
+        } else if (currentRoom == MoveRooms.windingRoom && (itemString.equalsIgnoreCase("map") || itemString.equalsIgnoreCase("old")) && !hasMap) {
             System.out.println("You pick up the old map. It contains a layout of the entire mine.");
             hasMap = true;
             return true;
-        } else if (currentRoom == MoveRooms.toolStore && itemString.equalsIgnoreCase("rope") & !hasRope) {
+        } else if (currentRoom == MoveRooms.toolStore && itemString.equalsIgnoreCase("rope") && !hasRope) {
             System.out.println("You pick up the rope. It looks long enough to reach the Shaft Top.");
             hasRope = true;
             return true;
