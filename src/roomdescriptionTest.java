@@ -23,9 +23,9 @@ public class roomdescriptionTest {
     void CheckIfCorrectDescriptionForLowerChamber() throws Exception {
         int room = MoveRooms.lowerChamber;
         Inventory.hasKey = true;
-        assertEquals("You are standing at the lower chamber.", roomdescription.room_description(room));
+        assertEquals("You are standing at the lower chamber. There is an old miner here.", roomdescription.room_description(room));
         Inventory.hasKey = false;
-        assertEquals("You are standing at the lower chamber. There is a key here.", roomdescription.room_description(room));
+        assertEquals("You are standing at the lower chamber. There is an old miner here. He is holding something shiny.", roomdescription.room_description(room));
     }
 
     @Test

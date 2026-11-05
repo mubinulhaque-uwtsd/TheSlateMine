@@ -10,7 +10,6 @@ public class InventoryTests {
         Inventory.hasMap = false;
         Inventory.hasRope = false;
 
-        assertEquals(true, Inventory.pickUp(MoveRooms.lowerChamber, "key"));
         assertEquals(true, Inventory.pickUp(MoveRooms.windingRoom, "old"));
         Inventory.hasMap = false; // We have to set this back to false, otherwise it fails the test, because the item has already been picked up and thus doesn't exist in the room anymore.
         assertEquals(true, Inventory.pickUp(MoveRooms.windingRoom, "map"));
@@ -50,6 +49,7 @@ public class InventoryTests {
         assertEquals(false, Inventory.pickUp(MoveRooms.shaftBottom, "helmet"));
 
         // Invalid tests for the key item
+        assertEquals(false, Inventory.pickUp(MoveRooms.lowerChamber, "key"));
         assertEquals(false, Inventory.pickUp(MoveRooms.entrance, "key"));
         assertEquals(false, Inventory.pickUp(MoveRooms.toolStore, "key"));
         assertEquals(false, Inventory.pickUp(MoveRooms.windingRoom, "key"));
@@ -61,7 +61,7 @@ public class InventoryTests {
     @Test 
     void checkValidDrops() {
         Inventory.hasKey = true;
-        assertTrue(Inventory.drop("key"));
+        assertFalse(Inventory.drop("key"));
         Inventory.hasHelmet = true;
         assertTrue(Inventory.drop("helmet"));
         Inventory.hasHelmet = true;
