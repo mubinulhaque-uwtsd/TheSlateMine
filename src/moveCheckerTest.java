@@ -57,7 +57,7 @@ public class moveCheckerTest {
         Inventory.hasKey = true;
 
         // Attempt to unlock shaft
-        boolean result = moveChecker.unlockShaftBottom();
+        boolean result = moveChecker.unlockShaftBottom(MoveRooms.mainTunnel);
 
         // Verify unlock succeeded
         assertTrue(result);
@@ -71,7 +71,7 @@ public class moveCheckerTest {
         Inventory.hasKey = false;
 
         // Attempt to unlock shaft
-        boolean result = moveChecker.unlockShaftBottom();
+        boolean result = moveChecker.unlockShaftBottom(MoveRooms.shaftBottom);
 
         // Verify unlock failed
         assertFalse(result);
@@ -85,6 +85,9 @@ public class moveCheckerTest {
 
         // Give player a key
         Inventory.hasKey = true;
+
+        // Move to main tunnel
+        Typer.currentRoom = MoveRooms.mainTunnel;
 
         // Use the key
         Typer.command("use key");
@@ -143,8 +146,8 @@ public class moveCheckerTest {
         Inventory.hasKey = true;
 
         // Unlock twice
-        moveChecker.unlockShaftBottom();
-        moveChecker.unlockShaftBottom();
+        moveChecker.unlockShaftBottom(MoveRooms.mainTunnel);
+        moveChecker.unlockShaftBottom(MoveRooms.mainTunnel);
 
         // Verify shaft stays unlocked
         assertTrue(moveChecker.isShaftBottomUnlocked());
@@ -160,7 +163,7 @@ public class moveCheckerTest {
         Inventory.hasRope = true;
 
         // Use rope
-        boolean result = moveChecker.useRopeOnShaftTop();
+        boolean result = moveChecker.useRopeOnShaftTop(MoveRooms.shaftBottom);
 
         // Verify access granted
         assertTrue(result);
@@ -177,7 +180,7 @@ public class moveCheckerTest {
         Inventory.hasRope = false;
 
         // Attempt to use rope
-        boolean result = moveChecker.useRopeOnShaftTop();
+        boolean result = moveChecker.useRopeOnShaftTop(MoveRooms.shaftBottom);
 
         // Verify access denied
         assertFalse(result);
@@ -192,6 +195,9 @@ public class moveCheckerTest {
 
         // Give player a rope
         Inventory.hasRope = true;
+
+        // Move to shaft bottom
+        Typer.currentRoom = MoveRooms.shaftBottom;
 
         // Use rope command
         Typer.command("use rope");
