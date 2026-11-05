@@ -12,6 +12,13 @@ public class moveChecker {
 
     public static boolean checkMoveIsLegal(int currentRoom, int direction) {
 
+        // Checks whether the user's input is invalid - e.g. "left", "right" etc. 
+        // instead of a legal direction
+        if (direction < 0)
+        {
+            System.out.println("Your move was invalid - try again."); 
+            return false;
+        }
         // -1 indicates an invalid exit
         if (MoveRooms.exits[currentRoom][direction] == -1)
         {
@@ -19,7 +26,10 @@ public class moveChecker {
         }
 
         return true;
+    
     }
+
+       
 
     private static boolean shaftBottomUnlocked = false;
 
