@@ -7,6 +7,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving north from the Entrance reaches the Main Tunnel.
     void entranceNorthGoesToMainTunnel() {
+        App.newGame();
         assertEquals(MoveRooms.mainTunnel,
                 MoveRooms.move(MoveRooms.entrance, MoveRooms.north));
     }
@@ -14,6 +15,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving south from the Main Tunnel returns to the Entrance.
     void mainTunnelSouthGoesToEntrance() {
+        App.newGame();
         assertEquals(MoveRooms.entrance,
                 MoveRooms.move(MoveRooms.mainTunnel, MoveRooms.south));
     }
@@ -21,6 +23,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving east from the Main Tunnel reaches the Tool Store.
     void mainTunnelEastGoesToToolStore() {
+        App.newGame();
         assertEquals(MoveRooms.toolStore,
                 MoveRooms.move(MoveRooms.mainTunnel, MoveRooms.east));
     }
@@ -28,6 +31,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving east from the Entrance is not possible.
     void entranceEastIsInvalid() {
+        App.newGame();
         assertEquals(-1,
                 MoveRooms.move(MoveRooms.entrance, MoveRooms.east));
     }
@@ -35,6 +39,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving north from the Shaft Top is not possible.
     void shaftTopNorthIsInvalid() {
+        App.newGame();
         assertEquals(-1,
                 MoveRooms.move(MoveRooms.shaftTop, MoveRooms.north));
     }
@@ -42,6 +47,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that an invalid room number returns -1.
     void invalidRoomReturnsMinusOne() {
+        App.newGame();
         assertEquals(-1,
                 MoveRooms.move(99, MoveRooms.north));
     }
@@ -49,6 +55,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that an invalid direction returns -1.
     void invalidDirectionReturnsMinusOne() {
+        App.newGame();
         assertEquals(-1,
                 MoveRooms.move(MoveRooms.entrance, 99));
     }
@@ -56,6 +63,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving north then south returns to the original room.
     void entranceNorthThenSouthReturnsToEntrance() {
+        App.newGame();
         int room = MoveRooms.move(MoveRooms.entrance, MoveRooms.north);
         room = MoveRooms.move(room, MoveRooms.south);
 
@@ -65,6 +73,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that moving down then up returns to the original room.
     void windingRoomDownThenUpReturnsToWindingRoom() {
+        App.newGame();
         int room = MoveRooms.move(MoveRooms.windingRoom, MoveRooms.down);
         room = MoveRooms.move(room, MoveRooms.up);
 
@@ -74,6 +83,7 @@ public class MoveRoomsTest {
     @Test
     // Verify that each room has six possible direction slots.
     void everyRoomHasSixDirections() {
+        App.newGame();
         for (int[] room : MoveRooms.exits) {
             assertEquals(6, room.length);
         }
@@ -82,6 +92,7 @@ public class MoveRoomsTest {
     @Test 
     // Verify that each direction returns the correct integer
     void checkGetDirection() {
+        App.newGame();
        assertEquals(MoveRooms.north, MoveRooms.getDirection("north"));
        assertEquals(MoveRooms.east, MoveRooms.getDirection("east"));
        assertEquals(MoveRooms.south, MoveRooms.getDirection("south"));

@@ -7,6 +7,7 @@ import java.util.List;
 public class TyperTests {
     @Test
     void checkGetCommand() {
+        App.newGame();
         List<String> expected = new ArrayList<>();
         List<String> actual = Typer.getCommand("       MoVe   diR  ");
 
