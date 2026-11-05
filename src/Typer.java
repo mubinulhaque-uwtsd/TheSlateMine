@@ -85,11 +85,14 @@ public class Typer {
         } else if (command.get(0).equalsIgnoreCase("use")) {
             // If the player wants to use an item
 
-            if (command.size() > 1 &&
-                command.get(1).equalsIgnoreCase("map")) {
-
-                OldMap.printMap(currentRoom);
-
+            if (command.size() > 1 && (command.get(1).equalsIgnoreCase("map") || (command.get(1).equalsIgnoreCase("old") && command.get(2).equalsIgnoreCase("map")))) {
+                if (Inventory.hasMap) {
+                    // If the player has the old map
+                    OldMap.printMap(currentRoom);
+                } else {
+                    // If the player does not have the old map
+                    System.out.println("You do not have a map.");
+                }
             } else if (command.size() > 1 &&
                        command.get(1).equalsIgnoreCase("key")) {
 
