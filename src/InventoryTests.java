@@ -5,6 +5,11 @@ public class InventoryTests {
     // Verifies that the items can be picked up in the correct locations
     @Test
     void checkValidPickups() {
+        Inventory.hasHelmet = false;
+        Inventory.hasKey = false;
+        Inventory.hasMap = false;
+        Inventory.hasRope = false;
+
         assertEquals(true, Inventory.pickUp(MoveRooms.lowerChamber, "key"));
         assertEquals(true, Inventory.pickUp(MoveRooms.windingRoom, "old"));
         Inventory.hasMap = false; // We have to set this back to false, otherwise it fails the test, because the item has already been picked up and thus doesn't exist in the room anymore.
@@ -18,6 +23,11 @@ public class InventoryTests {
     // Verifies that the items cannot be picked up in the wrong locations
     @Test
     void checkInvalidPickups() {
+        Inventory.hasHelmet = false;
+        Inventory.hasKey = false;
+        Inventory.hasMap = false;
+        Inventory.hasRope = false;
+        
         // Invalid tests for the rope item
         assertEquals(false, Inventory.pickUp(MoveRooms.entrance, "rope"));
         assertEquals(false, Inventory.pickUp(MoveRooms.lowerChamber, "rope"));
