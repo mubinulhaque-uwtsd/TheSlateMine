@@ -138,7 +138,6 @@ public class Typer {
             System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the room it was found in");
             System.out.println("'talk <person>': Talks to the specified person");
             System.out.println("'give <object> to <person>': Removes the specified object from your inventory, and gives it to the specified person");
-            System.out.println("'inspect <object>': Provides a description of the given room or object");
             System.out.println("'list': Lists all objects currently in your inventory");
             System.out.println("'move <direction>': Moves you either north, east, south, west, up, or down, when specified");
             System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");
