@@ -80,6 +80,15 @@ public class Typer {
             // If the player wants to list their picked-up objects
             System.out.println("You are carrying:");
             itemtype.Printitems();
+        } else if (command.size() >= 2 && command.get(0).equalsIgnoreCase("talk") && (command.get(1).equalsIgnoreCase("old") || command.get(1).equalsIgnoreCase("miner"))) {
+            // If the player wants to talk to the miner
+            OldMiner.talk(currentRoom);
+        } else if (command.size() >= 4 && command.get(0).equalsIgnoreCase("give") && command.get(2).equalsIgnoreCase("to") && (command.get(3).equalsIgnoreCase("old") || command.get(3).equalsIgnoreCase("miner"))) {
+            // If the player wants to give an item to the old miner
+            OldMiner.giveItem(command.get(1), currentRoom);
+        } else if (command.size() >= 5 && command.get(0).equalsIgnoreCase("give") && command.get(3).equalsIgnoreCase("to") && (command.get(4).equalsIgnoreCase("old") || command.get(4).equalsIgnoreCase("miner"))) {
+            // If the player wants to give an item to the old miner
+            OldMiner.giveItem(command.get(1), currentRoom);
         } else if (command.get(0).equalsIgnoreCase("use")) {
             // If the player wants to use an item
 
@@ -126,7 +135,10 @@ public class Typer {
             // If the player wants to get some help
             System.out.println("Commands available:");
             System.out.println("'help': Lists all available commands");
-            System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the current room");
+            System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the room it was found in");
+            System.out.println("'talk <person>': Talks to the specified person");
+            System.out.println("'give <object> to <person>': Removes the specified object from your inventory, and gives it to the specified person");
+            System.out.println("'inspect <object>': Provides a description of the given room or object");
             System.out.println("'list': Lists all objects currently in your inventory");
             System.out.println("'move <direction>': Moves you either north, east, south, west, up, or down, when specified");
             System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");

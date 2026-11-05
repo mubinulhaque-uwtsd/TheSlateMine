@@ -9,6 +9,7 @@ public class depletableitemsTest {
     
     @Test
     void KeyShouldBeDepleted() throws Exception {
+        App.newGame();
         boolean result = depletableitems.depletable_items("key");
 
         assertTrue(result);
@@ -17,6 +18,7 @@ public class depletableitemsTest {
 
     @Test
     void RopeShouldBeDepleted() throws Exception {
+        App.newGame();
         boolean result = depletableitems.depletable_items("rope");
 
         assertTrue(result);
@@ -25,6 +27,7 @@ public class depletableitemsTest {
 
     @Test
     void BothShouldBeDepleted() throws Exception {
+        App.newGame();
         depletableitems.haskey = true;
         depletableitems.hasrope = true;
         boolean result = depletableitems.depletable_items("key");
@@ -36,6 +39,7 @@ public class depletableitemsTest {
 
     @Test
     void InvalidItemShouldReturnFalse() throws Exception {
+        App.newGame();
         boolean result = depletableitems.depletable_items("torch");
 
         assertFalse(result);

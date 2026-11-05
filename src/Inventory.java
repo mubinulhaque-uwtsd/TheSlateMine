@@ -5,11 +5,7 @@ public class Inventory {
     public static boolean hasRope = false;
 
     public static boolean pickUp(int currentRoom, String itemString) {
-        if (currentRoom == MoveRooms.lowerChamber && itemString.equalsIgnoreCase("key") && !hasKey) {
-            System.out.println("You pick up the key. It says, \"Gate To Shaft Bottom\" on its label.");
-            hasKey = true;
-            return true;
-        } else if (currentRoom == MoveRooms.windingRoom && (itemString.equalsIgnoreCase("map") || itemString.equalsIgnoreCase("old")) && !hasMap) {
+         if (currentRoom == MoveRooms.windingRoom && (itemString.equalsIgnoreCase("map") || itemString.equalsIgnoreCase("old")) && !hasMap) {
             System.out.println("You pick up the old map. It contains a layout of the entire mine.");
             hasMap = true;
             return true;
@@ -29,9 +25,8 @@ public class Inventory {
 
     public static boolean drop(String itemString) {
         if (itemString.equalsIgnoreCase("key") && hasKey) {
-            System.out.println("You dropped the key.");
-            hasKey = false;
-            return true;
+            System.out.println("You decide not to drop the key, since the old miner entrusted it to you.");
+            return false;
         } else if (itemString.equalsIgnoreCase("helmet") && hasHelmet) {
             System.out.println("You dropped the helmet lamp.");
             hasHelmet = false;

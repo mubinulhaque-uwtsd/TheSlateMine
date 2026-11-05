@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 public class roomdescriptionTest {
     @Test 
     void CheckIfCorrectDescriptionForEntrance() throws Exception {
+        App.newGame();
         Inventory.hasHelmet = true;
         assertEquals("You are standing at the entrance. It is dim and damp.", roomdescription.room_description(MoveRooms.entrance));
         Inventory.hasHelmet = false;
@@ -15,21 +16,24 @@ public class roomdescriptionTest {
 
     @Test
     void CheckIfCorrectDescriptionForMainTunnel() throws Exception {
+        App.newGame();
         int room = MoveRooms.mainTunnel;
         assertEquals("You are standing at the main tunnel.", roomdescription.room_description(room));
     }
 
     @Test
     void CheckIfCorrectDescriptionForLowerChamber() throws Exception {
+        App.newGame();
         int room = MoveRooms.lowerChamber;
         Inventory.hasKey = true;
-        assertEquals("You are standing at the lower chamber.", roomdescription.room_description(room));
+        assertEquals("You are standing at the lower chamber. There is an old miner here.", roomdescription.room_description(room));
         Inventory.hasKey = false;
-        assertEquals("You are standing at the lower chamber. There is a key here.", roomdescription.room_description(room));
+        assertEquals("You are standing at the lower chamber. There is an old miner here. He is holding something shiny.", roomdescription.room_description(room));
     }
 
     @Test
     void CheckIfCorrectDescriptionForWindingRoom() throws Exception {
+        App.newGame();
         int room = MoveRooms.windingRoom;
         Inventory.hasMap = false;
         assertEquals("You are standing in the winding room. There is an old map here.", roomdescription.room_description(room));
@@ -39,6 +43,7 @@ public class roomdescriptionTest {
 
     @Test
     void CheckIfCorrectDescriptionForToolStore() throws Exception {
+        App.newGame();
         int room = MoveRooms.toolStore;
         Inventory.hasRope = true;
         assertEquals("You are standing in a tool store.", roomdescription.room_description(room));
@@ -50,6 +55,7 @@ public class roomdescriptionTest {
 
     @Test
     void CheckIfCorrectDescriptionForShaftBottom() throws Exception {
+        App.newGame();
         int room = MoveRooms.shaftBottom;
         assertEquals("You are standing at a shaft bottom", roomdescription.room_description(room));
     }
@@ -58,6 +64,7 @@ public class roomdescriptionTest {
 
     @Test
     void CheckIfCorrectDescriptionForShaftTop() throws Exception {
+        App.newGame();
         int room = MoveRooms.shaftTop;
         assertEquals("You are standing at the shaft top", roomdescription.room_description(room));
     }

@@ -7,6 +7,7 @@ public class moveCheckerTest {
      // Test to check that invalid user input is handled
     @Test
     public void checkInvalidUserInput() {
+        App.newGame();
 
     boolean result = moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel,-1);
 
@@ -16,6 +17,7 @@ public class moveCheckerTest {
 
     @Test 
     void checkIsMoveLegal() throws Exception {
+        App.newGame();
 
     // Tests to verify illegal moves between rooms - all should fail as the player 
     // cannot move in the direction given from each room. 
@@ -65,6 +67,7 @@ public class moveCheckerTest {
 
     @Test
     void testUnlockShaftBottomWithKey() {
+        App.newGame();
 
         // Give player a key
         Inventory.hasKey = true;
@@ -79,6 +82,7 @@ public class moveCheckerTest {
 
     @Test
     void testUnlockShaftBottomWithoutKey() {
+        App.newGame();
 
         // Ensure player has no key
         Inventory.hasKey = false;
@@ -92,6 +96,7 @@ public class moveCheckerTest {
 
     @Test
     void testUseKeyCommandUnlocksShaft() {
+        App.newGame();
 
         // Reset shaft state
         moveChecker.resetShaftBottomUnlocked();
@@ -111,12 +116,8 @@ public class moveCheckerTest {
 
     @Test
     void testUseKeyWithoutHavingKey() {
-
         // Reset shaft state
-        moveChecker.resetShaftBottomUnlocked();
-
-        // Ensure player has no key
-        Inventory.hasKey = false;
+        App.newGame();
 
         // Attempt to use key
         Typer.command("use key");
@@ -127,6 +128,7 @@ public class moveCheckerTest {
 
     @Test
     void testUseMapCommandStillWorks() {
+        App.newGame();
 
         // Verify map command does not crash
         assertDoesNotThrow(() -> {
@@ -136,6 +138,7 @@ public class moveCheckerTest {
 
     @Test
     void testUseUnknownItem() {
+        App.newGame();
 
         // Verify invalid item does not crash
         assertDoesNotThrow(() -> {
@@ -145,6 +148,7 @@ public class moveCheckerTest {
 
     @Test
     void testUseWithoutItem() {
+        App.newGame();
 
         // Verify missing item is handled
         assertDoesNotThrow(() -> {
@@ -154,6 +158,7 @@ public class moveCheckerTest {
 
     @Test
     void testUnlockCalledTwice() {
+        App.newGame();
 
         // Give player a key
         Inventory.hasKey = true;
@@ -170,7 +175,7 @@ public class moveCheckerTest {
     void testUseRopeWithRope() {
 
         // Reset shaft top state
-        moveChecker.resetShaftTopAccessible();
+        App.newGame();
 
         // Give player a rope
         Inventory.hasRope = true;
@@ -187,10 +192,7 @@ public class moveCheckerTest {
     void testUseRopeWithoutRope() {
 
         // Reset shaft top state
-        moveChecker.resetShaftTopAccessible();
-
-        // Ensure player has no rope
-        Inventory.hasRope = false;
+        App.newGame();
 
         // Attempt to use rope
         boolean result = moveChecker.useRopeOnShaftTop(MoveRooms.shaftBottom);
@@ -204,7 +206,7 @@ public class moveCheckerTest {
     void testUseRopeCommandGrantsAccess() {
 
         // Reset shaft top state
-        moveChecker.resetShaftTopAccessible();
+        App.newGame();
 
         // Give player a rope
         Inventory.hasRope = true;
@@ -223,10 +225,7 @@ public class moveCheckerTest {
     void testUseRopeCommandWithoutRope() {
 
         // Reset shaft top state
-        moveChecker.resetShaftTopAccessible();
-
-        // Ensure player has no rope
-        Inventory.hasRope = false;
+        App.newGame();
 
         // Attempt to use rope
         Typer.command("use rope");
