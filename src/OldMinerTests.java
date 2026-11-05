@@ -23,6 +23,7 @@ public class OldMinerTests {
     // Checks if the old miner has the helmet lamp after giving him it
     @Test 
     void checkMinerGetsHelmet() {
+        Inventory.hasHelmet = true;
         OldMiner.giveItem("helmet", MoveRooms.lowerChamber);
         assertTrue(OldMiner.hasHelmet);
     }
@@ -30,6 +31,7 @@ public class OldMinerTests {
     // Checks if the old miner stops talking after receiving the old helmet lamp
     @Test 
     void checkMinerStopsTalking() {
+        Inventory.hasHelmet = true;
         OldMiner.giveItem("helmet", MoveRooms.lowerChamber);
         assertFalse(OldMiner.talk(MoveRooms.lowerChamber));
     }
