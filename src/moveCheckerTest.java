@@ -50,4 +50,103 @@ public class moveCheckerTest {
 
     }
 
+    @Test
+    void testUnlockShaftBottomWithKey() {
+
+        // Give player a key
+        Inventory.hasKey = true;
+
+        // Attempt to unlock shaft
+        boolean result = moveChecker.unlockShaftBottom();
+
+        // Verify unlock succeeded
+        assertTrue(result);
+        assertTrue(moveChecker.isShaftBottomUnlocked());
+    }
+
+    @Test
+    void testUnlockShaftBottomWithoutKey() {
+
+        // Ensure player has no key
+        Inventory.hasKey = false;
+
+        // Attempt to unlock shaft
+        boolean result = moveChecker.unlockShaftBottom();
+
+        // Verify unlock failed
+        assertFalse(result);
+    }
+
+    @Test
+    void testUseKeyCommandUnlocksShaft() {
+
+        // Reset shaft state
+        moveChecker.resetShaftBottomUnlocked();
+
+        // Give player a key
+        Inventory.hasKey = true;
+
+        // Use the key
+        Typer.command("use key");
+
+        // Verify shaft was unlocked
+        assertTrue(moveChecker.isShaftBottomUnlocked());
+    }
+
+    @Test
+    void testUseKeyWithoutHavingKey() {
+
+        // Reset shaft state
+        moveChecker.resetShaftBottomUnlocked();
+
+        // Ensure player has no key
+        Inventory.hasKey = false;
+
+        // Attempt to use key
+        Typer.command("use key");
+
+        // Verify shaft remains locked
+        assertFalse(moveChecker.isShaftBottomUnlocked());
+    }
+
+    @Test
+    void testUseMapCommandStillWorks() {
+
+        // Verify map command does not crash
+        assertDoesNotThrow(() -> {
+            Typer.command("use map");
+        });
+    }
+
+    @Test
+    void testUseUnknownItem() {
+
+        // Verify invalid item does not crash
+        assertDoesNotThrow(() -> {
+            Typer.command("use banana");
+        });
+    }
+
+    @Test
+    void testUseWithoutItem() {
+
+        // Verify missing item is handled
+        assertDoesNotThrow(() -> {
+            Typer.command("use");
+        });
+    }
+
+    @Test
+    void testUnlockCalledTwice() {
+
+        // Give player a key
+        Inventory.hasKey = true;
+
+        // Unlock twice
+        moveChecker.unlockShaftBottom();
+        moveChecker.unlockShaftBottom();
+
+        // Verify shaft stays unlocked
+        assertTrue(moveChecker.isShaftBottomUnlocked());
+    }
 }

@@ -82,11 +82,30 @@ public class Typer {
             // If the player wants to list their picked-up objects
         } else if (command.get(0).equalsIgnoreCase("use")) {
             // If the player wants to use an item
-            if (command.size() > 1 && command.get(1).equalsIgnoreCase("map")) {
+
+            if (command.size() > 1 &&
+                command.get(1).equalsIgnoreCase("map")) {
+
                 OldMap.printMap(currentRoom);
-            }
-            else if(command.size() <= 1)
+
+            } else if (command.size() > 1 &&
+                       command.get(1).equalsIgnoreCase("key")) {
+
+                if (moveChecker.unlockShaftBottom()) {
+                    System.out.println("You unlock the shaft bottom.");
+                } else {
+                    System.out.println("You do not have a key.");
+                }
+
+            } else if (command.size() <= 1) {
+
                 System.out.println("Specify an item to use.");
+
+            } else {
+
+                System.out.println("You can't use that.");
+            }
+
         } else if (command.get(0).equalsIgnoreCase("help")) {
             // If the player wants to get some help
             System.out.println("Commands available:");

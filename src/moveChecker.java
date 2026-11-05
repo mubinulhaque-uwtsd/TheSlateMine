@@ -21,4 +21,25 @@ public class moveChecker {
         return true;
     }
 
+    private static boolean shaftBottomUnlocked = false;
+
+    public static boolean unlockShaftBottom() {
+
+        if (Inventory.hasKey) {
+            shaftBottomUnlocked = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean isShaftBottomUnlocked() {
+        return shaftBottomUnlocked;
+    }
+
+    // reset method to prevent variable contamination during tests
+    public static void resetShaftBottomUnlocked() {
+    shaftBottomUnlocked = false;
+    }
+
 }
