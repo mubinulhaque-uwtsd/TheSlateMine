@@ -58,8 +58,6 @@ public class Typer {
                 // If the player didn't give a direction
                 System.out.println("You must specify a direction.");
             }
-        } else if (command.get(0).equalsIgnoreCase("inspect")) {
-            // If the player wants to inspect something
         } else if (command.get(0).equalsIgnoreCase("pick") && command.get(1).equalsIgnoreCase("up")) {
             // If the player wants to pick up an object
             if (command.size() > 2) {
@@ -129,7 +127,6 @@ public class Typer {
             System.out.println("Commands available:");
             System.out.println("'help': Lists all available commands");
             System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the current room");
-            System.out.println("'inspect <object>': Provides a description of the given room or object");
             System.out.println("'list': Lists all objects currently in your inventory");
             System.out.println("'move <direction>': Moves you either north, east, south, west, up, or down, when specified");
             System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");
