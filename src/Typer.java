@@ -91,7 +91,7 @@ public class Typer {
             } else if (command.size() > 1 &&
                        command.get(1).equalsIgnoreCase("key")) {
 
-                if (moveChecker.unlockShaftBottom()) {
+                if (moveChecker.unlockShaftBottom(currentRoom)) {
                     System.out.println("You unlock the shaft bottom.");
                 } else {
                     System.out.println("You do not have a key.");
@@ -100,7 +100,7 @@ public class Typer {
             } else if (command.size() > 1 &&
                        command.get(1).equalsIgnoreCase("rope")) {
 
-                if (moveChecker.useRopeOnShaftTop()) {
+                if (moveChecker.useRopeOnShaftTop(currentRoom)) {
                     System.out.println("You secure the rope and can now access the shaft top.");
                 } else {
                     System.out.println("You do not have a rope.");
