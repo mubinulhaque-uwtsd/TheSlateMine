@@ -9,7 +9,7 @@ public class OldMap {
         System.out.println("                     ↑");
         System.out.println("                     |");
         System.out.println("               " + roomLabel(MoveRooms.shaftBottom, currentRoom));
-        System.out.println("                     ↑");
+        System.out.println("                     |");
         System.out.println("                     |");
         System.out.println(roomLabel(MoveRooms.windingRoom, currentRoom) + "--" + roomLabel(MoveRooms.mainTunnel, currentRoom) + "--" + roomLabel(MoveRooms.toolStore, currentRoom));
         System.out.println("       |             |");
