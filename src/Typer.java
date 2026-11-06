@@ -58,8 +58,6 @@ public class Typer {
                 // If the player didn't give a direction
                 System.out.println("You must specify a direction.");
             }
-        } else if (command.get(0).equalsIgnoreCase("inspect")) {
-            // If the player wants to inspect something
         } else if (command.get(0).equalsIgnoreCase("pick") && command.get(1).equalsIgnoreCase("up")) {
             // If the player wants to pick up an object
             if (command.size() > 2) {
@@ -80,6 +78,8 @@ public class Typer {
             }
         } else if (command.get(0).equalsIgnoreCase("list")) {
             // If the player wants to list their picked-up objects
+            System.out.println("You are carrying:");
+            itemtype.Printitems();
         } else if (command.size() >= 2 && command.get(0).equalsIgnoreCase("talk") && (command.get(1).equalsIgnoreCase("old") || command.get(1).equalsIgnoreCase("miner"))) {
             // If the player wants to talk to the miner
             OldMiner.talk(currentRoom);
@@ -92,11 +92,14 @@ public class Typer {
         } else if (command.get(0).equalsIgnoreCase("use")) {
             // If the player wants to use an item
 
-            if (command.size() > 1 &&
-                command.get(1).equalsIgnoreCase("map")) {
-
-                OldMap.printMap(currentRoom);
-
+            if ((command.size() > 1 && command.get(1).equalsIgnoreCase("map")) || (command.size() > 2 && command.get(1).equalsIgnoreCase("old") && command.get(2).equalsIgnoreCase("map"))) {
+                if (Inventory.hasMap) {
+                    // If the player has the old map
+                    OldMap.printMap(currentRoom);
+                } else {
+                    // If the player does not have the old map
+                    System.out.println("You do not have a map.");
+                }
             } else if (command.size() > 1 &&
                        command.get(1).equalsIgnoreCase("key")) {
 
@@ -135,11 +138,14 @@ public class Typer {
             System.out.println("'drop <object>': Removes the specified object from your inventory, and leaves it in the room it was found in");
             System.out.println("'talk <person>': Talks to the specified person");
             System.out.println("'give <object> to <person>': Removes the specified object from your inventory, and gives it to the specified person");
-            System.out.println("'inspect <object>': Provides a description of the given room or object");
             System.out.println("'list': Lists all objects currently in your inventory");
             System.out.println("'move <direction>': Moves you either north, east, south, west, up, or down, when specified");
             System.out.println("'pick up <object>': Stores a specified object in your inventory, and removes it from the room");
+            System.out.println("'use <object>': Uses the specified object");
             System.out.println("'quit': Quits the game");
+        } else {
+            // If the player types an invalid command
+            System.out.println("This is not a valid command.\nType \"help\" for all the available commands.");
         }
         
         System.out.println("");

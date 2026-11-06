@@ -18,6 +18,10 @@ public class itemtype {
         if(Inventory.hasRope){
             System.out.println("Rope - Seems strong enough to reach the top of the shaft");
         }
+
+        if (!Inventory.hasRope && !Inventory.hasHelmet && !Inventory.hasKey && !Inventory.hasMap) {
+            System.out.println("Nothing");
+        }
    }
     
 }
