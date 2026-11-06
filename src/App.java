@@ -26,6 +26,9 @@ public class App {
         Inventory.hasMap = false;
         Inventory.hasRope = false;
 
+        // Remove the spare helmet lamp from the old miner
+        OldMiner.hasHelmet = false;
+
         // Move the player back to the entrance
         Typer.currentRoom = MoveRooms.entrance;
 
