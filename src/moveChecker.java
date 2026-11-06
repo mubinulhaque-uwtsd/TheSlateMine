@@ -20,8 +20,19 @@ public class moveChecker {
             return false;
         }
         // -1 indicates an invalid exit
-        if (MoveRooms.exits[currentRoom][direction] == -1)
+        else if (MoveRooms.exits[currentRoom][direction] == -1)
         {
+            return false;
+        }// Checks whether the user moves to the locked Shaft Bottom
+        else if (currentRoom == MoveRooms.mainTunnel && MoveRooms.exits[currentRoom][direction] == MoveRooms.shaftBottom && !shaftBottomUnlocked)
+        {
+            System.out.println("You rattle the gate, but it doesn't seem to budge. There seems to be a slot for a key, though.");
+            return false;
+        }
+        // Checks whether the user moves to the Shaft Top without a rope attached
+        else if (MoveRooms.exits[currentRoom][direction] == MoveRooms.shaftTop && !shaftTopAccessible)
+        {
+            System.out.println("The top of the shaft is too high up. That said, you could probably reach it with a rope of some kind.");
             return false;
         }
 

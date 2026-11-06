@@ -40,7 +40,6 @@ public class moveCheckerTest {
     assertEquals(true, moveChecker.checkMoveIsLegal(0, 0));
 
     // All legal mmoves for main tunnel
-    assertEquals(true, moveChecker.checkMoveIsLegal(1, 0));
     assertEquals(true, moveChecker.checkMoveIsLegal(1, 1));
     assertEquals(true, moveChecker.checkMoveIsLegal(1, 2));
     assertEquals(true, moveChecker.checkMoveIsLegal(1, 3));
@@ -56,12 +55,20 @@ public class moveCheckerTest {
     assertEquals(true, moveChecker.checkMoveIsLegal(4, 3));
 
     // All legal moves for shaft bottom
-    assertEquals(true, moveChecker.checkMoveIsLegal(5, 4));
     assertEquals(true, moveChecker.checkMoveIsLegal(5, 2));
 
     // All legal moves for shaft top 
     assertEquals(true, moveChecker.checkMoveIsLegal(6, 5));
 
+    // Checks that you can move into the shaft top after securing the rope
+    Inventory.hasRope = true;
+    moveChecker.useRopeOnShaftTop(MoveRooms.shaftBottom);
+    assertTrue(moveChecker.checkMoveIsLegal(MoveRooms.shaftBottom, MoveRooms.up));
+
+    // Checks that you can move into the shaft bottom after it is unlocked
+    Inventory.hasKey = true;
+    moveChecker.unlockShaftBottom(MoveRooms.mainTunnel);
+    assertTrue(moveChecker.checkMoveIsLegal(MoveRooms.mainTunnel, MoveRooms.north));
 
     }
 
