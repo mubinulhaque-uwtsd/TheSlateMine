@@ -105,6 +105,7 @@ public class Typer {
 
                 if (moveChecker.unlockShaftBottom(currentRoom)) {
                     System.out.println("You unlock the shaft bottom.");
+                    depletableitems.depletable_items("key");
                 } else if (Inventory.hasKey) {
                     System.out.println("You cannot use the key here.");
                 } else {
@@ -116,6 +117,7 @@ public class Typer {
 
                 if (moveChecker.useRopeOnShaftTop(currentRoom)) {
                     System.out.println("You secure the rope and can now access the shaft top.");
+                    depletableitems.depletable_items("rope");
                 } else if (Inventory.hasRope) {
                     System.out.println("You cannot use the rope here.");
                 } else {
