@@ -1,16 +1,15 @@
 public class depletableitems {
      
-    public static boolean haskey = true;
-    public static boolean hasrope = true;
+
     public static boolean depletable_items(String item) {
-        if(item.equalsIgnoreCase("key")&& haskey)
+        if(item.equalsIgnoreCase("key") && Inventory.hasKey)
         {
-            haskey = false;
+            Inventory.hasKey = false;
             return true;
         }
-        else if(item.equalsIgnoreCase("rope")&& hasrope)
+        else if(item.equalsIgnoreCase("rope")&& Inventory.hasRope)
         {
-            hasrope = false;
+            Inventory.hasRope = false;
             return true;
         }
         return false;

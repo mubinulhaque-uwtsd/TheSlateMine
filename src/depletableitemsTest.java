@@ -10,26 +10,28 @@ public class depletableitemsTest {
     @Test
     void KeyShouldBeDepleted() throws Exception {
         App.newGame();
+        Inventory.hasKey = true;
         boolean result = depletableitems.depletable_items("key");
 
         assertTrue(result);
-        assertFalse(depletableitems.haskey);
+        assertFalse(Inventory.hasKey);
     }
 
     @Test
     void RopeShouldBeDepleted() throws Exception {
         App.newGame();
+        Inventory.hasRope = true;
         boolean result = depletableitems.depletable_items("rope");
-
+        
         assertTrue(result);
-        assertFalse(depletableitems.hasrope);
+        assertFalse(Inventory.hasRope);
     }
 
     @Test
     void BothShouldBeDepleted() throws Exception {
         App.newGame();
-        depletableitems.haskey = true;
-        depletableitems.hasrope = true;
+        Inventory.hasKey = true;
+        Inventory.hasRope = true;
         boolean result = depletableitems.depletable_items("key");
         boolean result2 = depletableitems.depletable_items("rope");
         assertTrue(result);
